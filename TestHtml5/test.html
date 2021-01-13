@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<header>
+<title id = "title">测试</title>
+</header>
+
+<body>
+    <button type="button" onclick = "loginClick()">登录(h5向原生传值)</button>
+    <br/><br/>
+    <button type="button" onclick = "deviceInfoClick()">显示设备信息(原生向h5传值)</button>
+    <script type="text/javascript">
+        function loginClick(){
+              //向原生传值 参数:json格式
+               native.login('{"token":"xxxxxx"}');
+           }
+        function deviceInfoClick(){
+             //调用原生方法 以便原生调用deviceInfo方法给h5传值
+            native.deviceInfo();
+        }
+        ///param 参数:json格式
+        function deviceInfo(param){
+            alert('设备名:'+param);
+        }
+    </script>
+</body>
+
+</html>
